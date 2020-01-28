@@ -6,85 +6,93 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        int i;
-
         Scanner reader = new Scanner(System.in);
-        for (i = 0; i < 10; i++) {
-            System.out.println("Камень - 1    Ножницы - 2    Бумага - 3");
-            startGame(reader.nextInt());
+        String start = reader.nextLine();
+        System.out.println("----------------------------------------------\n"
+                + "----------Welcome to the club, dude!----------\n"
+                + "----------------------------------------------\n"
+                + "-----------------Let's Start!-----------------\n"
+                + "---------------- ____________ ----------------\n"
+                + "=============== |  Yes / No  | ===============\n"
+                + "---------------- ‾‾‾‾‾‾‾‾‾‾‾‾ ----------------");
+        if (start.equals("Yes") | start.equals("yes")) {
+            System.out.println("-------------====================-------------\n" +
+                    "-------------- ### - GLHF - ### --------------\n" +
+                    "-------------====================-------------");
+            startGame();
         }
-        if (i == 10) {
-            finish(i);
-        }
+
     }
 
-    public static int points(int rez) {
-        rez += 1;
-        return rez;
-    }
-
-    public static int startGame(int usr) {
-        int rez = points(0);
-
+    public static void startGame() {
+        Scanner reader = new Scanner(System.in);
         Random random = new Random();
         double pc = random.nextInt(2 + 1) + 1;
-        if (usr == 1) {
+        String usr = reader.nextLine();
+
+        if (usr.equals("rock") | usr.equals("Rock")) {
             if (pc == 1) {
-                System.out.println("Камень - Ничья!");
+                System.out.println("*-------------PC chose the Rock--------------*\n" +
+                        "*-------------- ~~~ DRAW! ~~~ ---------------*\n" +
+                        "*--------------------------------------------*");
             }
 
             if (pc == 2) {
-                System.out.println("Ножницы - Вы выиграли!");
-                rez += 1;
+                System.out.println("*-----------PC chose the Scissors------------*\n" +
+                        "*------------- ~~~ YOU WON! ~~~ -------------*\n" +
+                        "*--------------------------------------------*");
             }
 
             if (pc == 3) {
-                System.out.println("Бумага - Вы проиграли!");
+                System.out.println("*-------------PC chose the Paper-------------*\n" +
+                        "*------------ ~~~ YOU LOST! ~~~ -------------*\n" +
+                        "*--------------------------------------------*");
             }
         }
 
-        if (usr == 2) {
+        if (usr.equals("scissors") | usr.equals("Scissors")) {
             if (pc == 1) {
-                System.out.println("Камень - Вы проиграли!");
+                System.out.println("*-------------PC chose the Rock--------------*\n" +
+                        "*------------ ~~~ YOU LOST! ~~~ -------------*\n" +
+                        "*--------------------------------------------*");
             }
 
             if (pc == 2) {
-                System.out.println("Ножницы - Ничья!");
+                System.out.println("*-----------PC chose the Scissors------------*\n" +
+                        "*-------------- ~~~ DRAW! ~~~ ---------------*\n" +
+                        "*--------------------------------------------*");
             }
 
             if (pc == 3) {
-                System.out.println("Бумага - Вы выиграли!");
-                rez += 1;
+                System.out.println("*-------------PC chose the Paper-------------*\n" +
+                        "*------------- ~~~ YOU WON! ~~~ -------------*\n" +
+                        "*--------------------------------------------*");
+
             }
         }
 
-        if (usr == 3) {
+        if (usr.equals("paper") | usr.equals("Paper")) {
             if (pc == 1) {
-                System.out.println("Камень - Вы выиграли!");
-                rez += 1;
+                System.out.println("*-------------PC chose the Rock--------------*\n" +
+                        "*------------- ~~~ YOU WON! ~~~ -------------*\n" +
+                        "*--------------------------------------------*");
             }
 
             if (pc == 2) {
-                System.out.println("Ножницы - Вы проиграли!");
+                System.out.println("*-----------PC chose the Scissors------------*\n" +
+                        "*------------ ~~~ YOU LOST! ~~~ -------------*\n" +
+                        "*--------------------------------------------*");
             }
 
             if (pc == 3) {
-                System.out.println("Бумага - Ничья!");
+                System.out.println("*-------------PC chose the Paper-------------*\n" +
+                        "*-------------- ~~~ DRAW! ~~~ ---------------*\n" +
+                        "*--------------------------------------------*");
             }
         }
 
-        points(rez);
-        return rez;
     }
-
-
-    public static void finish(int turns) {
-        int rez = 0;
-        int x = startGame(rez);
-        if (turns == 10) {
-            System.out.println("--------------------------------------------------");
-            System.out.println("-----------------Ваш результат: " + x + "-----------------");
-        }
-   }
 }
+
+
 
