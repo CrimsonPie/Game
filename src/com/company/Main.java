@@ -93,6 +93,10 @@ public class Main {
             game = true;
         }
 
+        if (!usr.equals("rock") | !usr.equals("Rock") | !usr.equals("scissors") | !usr.equals("Scissors") | !usr.equals("paper") | !usr.equals("Paper")) {
+            startGame();
+        }
+
         if (game = true) {
             System.out.print("*---------Do you want to play again?---------*\n"
                            + "*--------------- ____________ ---------------*\n"
