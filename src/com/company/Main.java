@@ -6,27 +6,35 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner reader = new Scanner(System.in);
-        System.out.println(
-                  "*--------------------------------------------*\n"
-                + "*----------------Let's Start!----------------*\n"
-                + "*--------------- ____________ ---------------*\n"
-                + "*============== |  Yes / No  | ==============*\n"
-                + "*--------------- ‾‾‾‾‾‾‾‾‾‾‾‾ ---------------*");
-        String start = reader.nextLine();
-        if (start.equals("Yes") | start.equals("yes")) {
-            System.out.println("*------------====================------------*\n" +
-                    "*------------- ### - GLHF - ### -------------*");
-            startGame();
-        }
+        ask();
+     }
 
-        else {
-            System.out.println("*------------====================------------*\n" +
-                    "*------------- ### - Adios! - ### -------------*\n" +
-                    "*------------====================------------*");
-        }
+     public static void ask() {
+         Scanner reader = new Scanner(System.in);
+         System.out.println(
+                 "*--------------------------------------------*\n"
+                         + "*----------------Let's Start!----------------*\n"
+                         + "*--------------- ____________ ---------------*\n"
+                         + "*============== |  Yes / No  | ==============*\n"
+                         + "*--------------- ‾‾‾‾‾‾‾‾‾‾‾‾ ---------------*");
+         String start = reader.nextLine();
+         if (start.equals("Yes") | start.equals("yes")) {
+             System.out.println("*------------====================------------*\n" +
+                     "*------------- ### - GLHF - ### -------------*");
+             startGame();
+         }
 
-    }
+         if (start.equals("No") | start.equals("no")) {
+             System.out.println("*------------====================------------*\n" +
+                     "*------------- ### - Adios! - ### -------------*\n" +
+                     "*------------====================------------*");
+         }
+
+         else if (!start.equals("no") | !start.equals("No") | !start.equals("Yes") | !start.equals("yes")) {
+             System.out.println("*-------- ### - Can't understand - ### --------*");
+             ask();
+         }
+     }
 
     public static void startGame() {
         Scanner reader = new Scanner(System.in);
@@ -35,7 +43,7 @@ public class Main {
 
         System.out.println("*------------====================------------*\n"
                          + "*----------Rock, Scissors or Paper?----------*\n" +
-                           "*----------~~~~~~~~~~~~~~~~~~~~~~~~----------*\n");
+                           "*----------~~~~~~~~~~~~~~~~~~~~~~~~----------*");
         String usr = reader.nextLine();
         boolean game;
 
@@ -114,3 +122,4 @@ public class Main {
         }
     }
 }
+
