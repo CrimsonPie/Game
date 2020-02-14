@@ -12,7 +12,7 @@ public class Main {
     public static void ask() {
         Scanner reader = new Scanner(System.in);
         System.out.println(
-                "*--------------------------------------------*\n"
+                          "*--------------------------------------------*\n"
                         + "*----------------Let's Start!----------------*\n"
                         + "*--------------- ____________ ---------------*\n"
                         + "*============== |  Yes / No  | ==============*\n"
@@ -20,17 +20,15 @@ public class Main {
         String start = reader.nextLine();
         if (start.equals("Yes") | start.equals("yes")) {
             System.out.println("*------------====================------------*\n" +
-                    "*------------- ### - GLHF - ### -------------*");
+                               "*------------- ### - GLHF - ### -------------*");
             startGame();
         }
 
         if (start.equals("No") | start.equals("no")) {
             System.out.println("*------------====================------------*\n" +
-                    "*------------- ### - Adios! - ### -------------*\n" +
-                    "*------------====================------------*");
-        }
-
-        else if (!start.equals("no") | !start.equals("No") | !start.equals("Yes") | !start.equals("yes")) {
+                               "*------------- ### - Adios! - ### -------------*\n" +
+                               "*------------====================------------*");
+        } else if (!start.equals("no") | !start.equals("No") | !start.equals("Yes") | !start.equals("yes")) {
             System.out.println("*-------- ### - Can't understand - ### --------*");
             ask();
         }
@@ -44,87 +42,69 @@ public class Main {
         System.out.println("*------------====================------------*\n"
                          + "*----------Rock, Scissors or Paper?----------*\n" +
                            "*----------~~~~~~~~~~~~~~~~~~~~~~~~----------*");
+
         String usr = reader.nextLine();
-        boolean game = false;
 
         if (usr.equals("rock") | usr.equals("Rock")) {
             if (pc == 1) {
                 System.out.println("*-------------PC chose the Rock--------------*\n" +
-                                   "*-------------- ~~~ DRAW! ~~~ ---------------*");
+                        "*-------------- ~~~ DRAW! ~~~ ---------------*");
             }
 
             if (pc == 2) {
                 System.out.println("*-----------PC chose the Scissors------------*\n" +
-                                   "*------------- ~~~ YOU WON! ~~~ -------------*");
+                        "*------------- ~~~ YOU WON! ~~~ -------------*");
             }
 
             if (pc == 3) {
                 System.out.println("*-------------PC chose the Paper-------------*\n" +
-                                   "*------------ ~~~ YOU LOST! ~~~ -------------*");
+                        "*------------ ~~~ YOU LOST! ~~~ -------------*");
             }
-            game = true;
         }
 
         if (usr.equals("scissors") | usr.equals("Scissors")) {
             if (pc == 1) {
                 System.out.println("*-------------PC chose the Rock--------------*\n" +
-                                   "*------------ ~~~ YOU LOST! ~~~ -------------*");
+                        "*------------ ~~~ YOU LOST! ~~~ -------------*");
             }
 
             if (pc == 2) {
                 System.out.println("*-----------PC chose the Scissors------------*\n" +
-                                   "*-------------- ~~~ DRAW! ~~~ ---------------*");
+                        "*-------------- ~~~ DRAW! ~~~ ---------------*");
             }
 
             if (pc == 3) {
                 System.out.println("*-------------PC chose the Paper-------------*\n" +
-                                   "*------------- ~~~ YOU WON! ~~~ -------------*");
+                        "*------------- ~~~ YOU WON! ~~~ -------------*");
             }
-            game = true;
         }
 
         if (usr.equals("paper") | usr.equals("Paper")) {
             if (pc == 1) {
                 System.out.println("*-------------PC chose the Rock--------------*\n" +
-                                   "*------------- ~~~ YOU WON! ~~~ -------------*");
+                        "*------------- ~~~ YOU WON! ~~~ -------------*");
             }
 
             if (pc == 2) {
                 System.out.println("*-----------PC chose the Scissors------------*\n" +
-                                   "*------------ ~~~ YOU LOST! ~~~ -------------*");
+                        "*------------ ~~~ YOU LOST! ~~~ -------------*");
             }
 
             if (pc == 3) {
                 System.out.println("*-------------PC chose the Paper-------------*\n" +
-                                   "*-------------- ~~~ DRAW! ~~~ ---------------*");
+                        "*-------------- ~~~ DRAW! ~~~ ---------------*");
             }
-            game = true;
         }
 
-        if (game == true) {
-            again();
-        }
-
-        else if (!usr.equals("rock") | !usr.equals("Rock") | !usr.equals("scissors") | !usr.equals("Scissors") | !usr.equals("paper") | !usr.equals("Paper") | !usr.equals("Stop") | !usr.equals("stop")) {
-            startGame();
-        }
-
-    }
-
-    public static void again() {
-        Scanner reader = new Scanner(System.in);
-        System.out.print("*---------Do you want to play again?---------*\n"
-                + "*--------------- ____________ ---------------*\n"
-                + "*============== |  Yes / No  | ==============*\n"
-                + "*--------------- ‾‾‾‾‾‾‾‾‾‾‾‾ ---------------*\n");
-        String again = reader.nextLine();
-        if (again.equals("yes") | again.equals("Yes")) {
-            startGame();
-        }
-        else {
+        if (usr.equals("Stop") | usr.equals("stop")) {
             System.out.println("*------------====================------------*\n" +
                     "*------------ ### - Adios! - ### ------------*\n" +
                     "*------------====================------------*");
         }
+
+
+       else {
+           startGame();
+       }
     }
 }
